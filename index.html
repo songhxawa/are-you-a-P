@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>你是魔怔P吧</title>
+<style>
+    div {
+        text-align: center;
+        font-size: 120px;
+    }
+    input {
+        padding: 5px;
+        margin-right: 10px;
+        font-size: 40px;
+        border: solid;
+    }
+    button {
+        padding: 7px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        font-size: 40px;
+    }
+    button:hover {
+        background-color: #0056b3;
+        transition: background-color 0.5s ease;
+    }
+    span {
+        font-size: 36px;
+    }
+</style>
+</head>
+<body>
+<div>
+<input type="text" id="inputText1" placeholder="文本">
+<input type="text" id="inputText2" placeholder="迭代次数">
+<button onclick="checkNumber()">Submit</button><br><br>
+</div>
+<span id="ans"></span>
+
+<script>
+function checkNumber() {
+    var input1 = document.getElementById("inputText1").value;
+    var input2 = document.getElementById("inputText2").value;
+    var num = parseInt(input2);
+    
+    function get (str, i) {
+        var strn = "这么喜欢" + str + "，你是" + str + "P吧";
+        if(i == 1) return strn;
+        return get(strn, i - 1);
+    }
+    
+    if (isNaN(num)) {
+        alert('enter a number');
+    } else {
+        document.getElementById('ans').innerHTML = get(input1, input2);
+    }
+}
+</script>
+
+</body>
+</html>
